@@ -1,5 +1,5 @@
 package lab2_old;
-import labb1_objekt.Vehicle;
+
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;

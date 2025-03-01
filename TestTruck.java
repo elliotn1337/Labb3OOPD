@@ -1,4 +1,4 @@
-package labb1_objekt;
+package lab2_old;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

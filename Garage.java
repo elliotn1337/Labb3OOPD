@@ -1,4 +1,4 @@
-package labb1_objekt;
+package lab2_old;
 import java.util.ArrayList;
 import java.util.List;
 

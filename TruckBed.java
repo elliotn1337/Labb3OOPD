@@ -1,4 +1,4 @@
-package labb1_objekt;
+package lab2_old;
 public class TruckBed {
 
     protected int angle;
