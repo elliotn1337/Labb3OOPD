@@ -12,6 +12,7 @@ public abstract class Vehicle extends Position implements Movable {
     protected double currDirection = 0;
     protected double size;
     private boolean isLoaded = false;
+    private boolean running = false;
     public void setCurrentspeed(double speed){currentSpeed = speed;
     }
     public double getSize(){return size;}
@@ -42,6 +43,10 @@ public abstract class Vehicle extends Position implements Movable {
     public void stopEngine(){
         currentSpeed = 0;
     }
+
+    public boolean isRunning(){return this.running;}
+
+    public void setIsRunning(boolean falseOrTrue){this.running = falseOrTrue;}
 
     public void move(){
         if (currDirection == 0) y += currentSpeed;

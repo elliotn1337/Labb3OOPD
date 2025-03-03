@@ -17,12 +17,14 @@ public class Saab95 extends Vehicle implements PersonalCar{
         stopEngine();
         this.x = i;
         this.y = i1;
-        running = false;
+        this.running = false;
     }
 
 
 
+    public boolean isRunning(){return this.running;}
 
+    public void flipIsRunning(){this.running = !this.running;}
 
     public void setTurboOn(){
         turboOn = true;

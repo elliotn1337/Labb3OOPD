@@ -19,8 +19,12 @@ public class Scania extends Truck{
         stopEngine();
         this.x = i;
         this.y = i1;
-        running = false;
+        this.running = false;
         }
+
+    public boolean isRunning(){return this.running;}
+
+    public void flipIsRunning(){this.running = !this.running;}
 
     @Override
     public void gas(double amount){

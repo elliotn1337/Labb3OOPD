@@ -15,8 +15,11 @@ public class Volvo240 extends Vehicle implements PersonalCar{
         size = 4.87;
         this.x = i;
         this.y = i1;
-        running = false;
+        this.running = false;
     }
+    public boolean isRunning(){return this.running;}
+
+    public void flipIsRunning(){this.running = !this.running;}
 
     @Override
     protected double speedFactor(){

@@ -7,18 +7,19 @@ import java.awt.event.ActionListener;
 public class Application {
     private final int delay = 50;
     CarView frame;
+    VehicleManager vehicleManager;
 
-    private Timer timer = new Timer(delay, new CarController.TimerListener());
+    private Timer timer = new Timer(delay, new TimerListener());
 
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (Vehicle car : cars) {
+            for (Vehicle car : VehicleManager.vehicles) {
 
                 car.move();
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
                 System.out.printf("%s\t%s\n", car.getClass(), car.getCurrentSpeed());
-                frame.VehicleManager.moveit(car, x, y);
+                frame.vehicleManager.moveit(car, x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
                 if (car.getX() < 0 || car.getX() > 800 || car.getY() < 0 || car.getY() > 800) {
@@ -47,9 +48,9 @@ public class Application {
         // Instance of this class
         CarController cc = new CarController();
 
-        cc.cars.add(new Saab95(0, 100));
-        cc.cars.add(new Scania(0, 200));
-        cc.cars.add(new Volvo240(0,0));
+        cc.vehicles.add(new Saab95(0, 100));
+        cc.vehicles.add(new Scania(0, 200));
+        cc.vehicles.add(new Volvo240(0,0));
         cc.garage = new Garage<Volvo240>();
 
 

@@ -6,14 +6,13 @@ package lab2_old;
  * modifying the model state and the updating the view.
  */
 
-public class CarController extends VehicleManager{
+public class CarController extends VehicleManager {
     // member fields:
     // The delay (ms) corresponds to 20 updates a sec (hz)
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
     // The frame that represents this instance View of the MVC pattern
     // A list of cars, modify if needed
-    Application application;
     //methods:
     /* Each step the TimerListener moves all the cars in the list and tells the
      * view to update its images. Change this method to your needs.
@@ -21,51 +20,88 @@ public class CarController extends VehicleManager{
 
     // Calls the gas method for each car once
     void gas(int amount) {
-        if (car.this.running){
-            double gas = ((double) amount) / 100;
-            for (Vehicle car : cars) {
-                car.gas(gas);
-            }}
+        double gas = ((double) amount) / 100;
+        for (Vehicle v : vehicles) {
+            if (v.isRunning()) {
+                v.gas(gas);
+            }
+        }
     }
+
     void brake(int amount) {
-        if (application.running){
-            double brake = ((double) amount) / 100;
-            for (Vehicle car : cars
-            ) {
-                car.brake(brake);
-            }}
+        for (Vehicle v : vehicles) {
+            if (v.isRunning()) {
+                double brake = ((double) amount) / 100;
+                v.brake(brake);
+            }
+        }
+    }
+
+    @Override
+    public void turnLeft() {
+        for (Vehicle v : vehicles) {
+            if (v.isRunning()) {
+                v.turnLeft();
+            }
+        }
+    }
+
+    @Override
+    public void turnRight() {
+        for (Vehicle v : vehicles) {
+            if (v.isRunning()) {
+                {
+                    v.turnRight();
+                }
+            }
+        }
+    }
+
+    void turboOn() {
+        for (Vehicle v : vehicles) {
+            if (v instanceof Saab95) {
+                ((Saab95) v).setTurboOn();
+            }
+        }
+    }
+
+    void turboOff() {
+        for (Vehicle v : vehicles) {
+            if (v instanceof Saab95) {
+                ((Saab95) v).setTurboOff();
+            }
+        }
     }
     @Override
-    public void turnLeft(){ for (Vehicle car : cars){if (car.running) {car.turnLeft();}}}}
+    public void startEngine() {
+        for (Vehicle v : vehicles) {
+            if (!(v.isRunning())) {
+                v.startEngine();
+                v.setIsRunning(true);
+            }
+        }
+    }
+    @Override
+    public void stopEngine() {
+        for (Vehicle v : vehicles) {
+            v.stopEngine();
+            v.setIsRunning(false);
+        }
+    }
 
-@Override
-public void turnRight(){for (Vehicle car : cars){ if(car.running){ {car.turnRight();}}}
-
-    void turboOn() {for (Vehicle car : cars) {
-        if (car instanceof Saab95){
-            ((Saab95) car).setTurboOn();}}}
-
-    void turboOff() {for (Vehicle car : cars) {
-        if (car instanceof Saab95){
-            ((Saab95) car).setTurboOff();}}}
-
-    void startEngine(){
-        for (Vehicle car : cars) {
-            if (!(running)){car.startEngine(); this.running = true;}}}
-    void stopEngine(){for (Vehicle car : cars) { car.stopEngine(); running = false;}}
     void raise(int amount) {
-        for (Vehicle car : cars) {
-            if (car instanceof Scania scania) {
+        for (Vehicle v : vehicles) {
+            if (v instanceof Scania scania) {
                 scania.raise(amount);
             }
         }
     }
-    void lower(int amount){
-        for (Vehicle car: cars){
-            if (car instanceof Scania scania){
+
+    void lower(int amount) {
+        for (Vehicle v : vehicles) {
+            if (v instanceof Scania scania) {
                 scania.lower(amount);
             }
         }
     }
-
 }

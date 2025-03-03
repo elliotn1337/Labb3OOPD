@@ -7,19 +7,19 @@ import java.util.ArrayList;
 public class VehicleManager extends Vehicle {
 
     DrawPanel drawPanel;
-    CarView carView;
+    CarView frame;
     CarController carC;
 
-    public List<Vehicle> vehicles = new ArrayList<>();
+    public static List<Vehicle> vehicles = new ArrayList<>();
 
-    void moveit(Vehicle car, int x, int y) {
-        if (car instanceof Volvo240) {
+    public void moveit(Vehicle v, int x, int y) {
+        if (v instanceof Volvo240) {
             drawPanel.volvoPoint.x = x;
             drawPanel.volvoPoint.y = y;
-        } else if (car instanceof Saab95) {
+        } else if (v instanceof Saab95) {
             drawPanel.saabPoint.x = x;
             drawPanel.saabPoint.y = y;
-        } else if (car instanceof Scania) {
+        } else if (v instanceof Scania) {
             drawPanel.scaniaPoint.x = x;
             drawPanel.scaniaPoint.y = y;}
     }
