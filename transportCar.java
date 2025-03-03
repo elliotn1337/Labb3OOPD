@@ -1,4 +1,3 @@
-
 package lab2_old;
 import java.awt.*;
 import java.util.ArrayList;
@@ -6,6 +5,7 @@ import java.util.ArrayList;
 public class transportCar<T extends PersonalCar> extends Truck {
     protected int carDistance;
     private final ArrayList <T> loadedCars = new ArrayList<T>(9);
+    boolean running;
 
     public transportCar() {
         super(new TruckBed());
@@ -15,6 +15,7 @@ public class transportCar<T extends PersonalCar> extends Truck {
         modelName = "Car transporter";
         double angle = 70;
         size = 20;
+        running = false;
     }
 
     public ArrayList<T> getLoadedCars(){return loadedCars;}

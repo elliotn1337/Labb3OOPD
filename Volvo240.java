@@ -4,7 +4,7 @@ import java.awt.*;
 public class Volvo240 extends Vehicle implements PersonalCar{
 
     private final static double trimFactor = 1.25;
-
+    boolean running;
     
     public Volvo240(int i, int i1){
         nrDoors = 4;
@@ -15,6 +15,7 @@ public class Volvo240 extends Vehicle implements PersonalCar{
         size = 4.87;
         this.x = i;
         this.y = i1;
+        running = false;
     }
 
     @Override

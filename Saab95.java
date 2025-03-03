@@ -4,6 +4,7 @@ import java.awt.*;
 public class Saab95 extends Vehicle implements PersonalCar{
 
     private boolean turboOn;
+    boolean running;
 
     
     public Saab95(int i, int i1){
@@ -16,7 +17,7 @@ public class Saab95 extends Vehicle implements PersonalCar{
         stopEngine();
         this.x = i;
         this.y = i1;
-
+        running = false;
     }
 
 

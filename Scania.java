@@ -4,6 +4,7 @@ import java.awt.*;
 public class Scania extends Truck{
 
     private TruckBed bed;
+    boolean running;
 
     public Scania(int i, int i1){
         super(new TruckBed());
@@ -18,6 +19,7 @@ public class Scania extends Truck{
         stopEngine();
         this.x = i;
         this.y = i1;
+        running = false;
         }
 
     @Override
