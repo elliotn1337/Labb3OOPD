@@ -21,6 +21,12 @@ public class CarController extends VehicleManager {
      * */
     public CarView frame;
 
+    protected VehicleManager vehicleManager;
+
+    public CarController() {
+        this.vehicleManager = new VehicleManager();
+    }
+
 
     // Calls the gas method for each car once
     void gas(int amount) {
