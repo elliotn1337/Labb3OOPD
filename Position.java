@@ -4,9 +4,9 @@ public class Position {
     private double x;
     private double y;
 
-    public double getX(){return this.x;}
-    public double getY(){return this.y;}
+    public double getX(){return x;}
+    public double getY(){return y;}
 
-    protected void setX(double xCoord){this.x = xCoord;}
-    public void setY(double yCoord){this.y = yCoord;}
+    protected void setX(double xCoord){x = xCoord;}
+    public void setY(double yCoord){y = yCoord;}
 }
