@@ -6,6 +6,8 @@ package lab2_old;
  * modifying the model state and the updating the view.
  */
 
+import javax.swing.*;
+
 public class CarController extends VehicleManager {
     // member fields:
     // The delay (ms) corresponds to 20 updates a sec (hz)
@@ -17,6 +19,8 @@ public class CarController extends VehicleManager {
     /* Each step the TimerListener moves all the cars in the list and tells the
      * view to update its images. Change this method to your needs.
      * */
+    public CarView frame;
+
 
     // Calls the gas method for each car once
     void gas(int amount) {

@@ -11,6 +11,8 @@ public class VehicleManager extends Vehicle {
     CarController carC;
 
     public static List<Vehicle> vehicles = new ArrayList<>();
+    //public static List<Vehicle> garages = new ArrayList<>();
+    Garage<Volvo240> garage = new Garage<>();
 
     public void moveit(Vehicle v, int x, int y) {
         if (v instanceof Volvo240) {
@@ -35,5 +37,7 @@ public class VehicleManager extends Vehicle {
     public void updatePositions(){
 
     }
+
+
 
 }
