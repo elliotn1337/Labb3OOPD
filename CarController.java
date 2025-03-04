@@ -19,7 +19,6 @@ public class CarController extends VehicleManager {
     /* Each step the TimerListener moves all the cars in the list and tells the
      * view to update its images. Change this method to your needs.
      * */
-    public CarView frame;
 
     protected VehicleManager vehicleManager;
 
@@ -30,8 +29,8 @@ public class CarController extends VehicleManager {
 
     // Calls the gas method for each car once
     void gas(int amount) {
-        double gas = ((double) amount) / 100;
         for (Vehicle v : vehicles) {
+            double gas = ((double) amount) / 100;
             if (v.isRunning()) {
                 v.gas(gas);
             }

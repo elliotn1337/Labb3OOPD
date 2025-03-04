@@ -13,10 +13,10 @@ public class Application {
             // Instance of this class
             CarController cc = new CarController();
 
-            cc.vehicleManager.vehicles.add(new Saab95(0, 100));
+            cc.vehicleManager.vehicles.add(new Saab95(50, 100));
             cc.vehicleManager.vehicles.add(new Scania(0, 200));
-            cc.vehicleManager.vehicles.add(new Volvo240(0,0));
-            //vm.garage = new Garage<Volvo240>();
+            cc.vehicleManager.vehicles.add(new Volvo240(0,300));
+            cc.vehicleManager.garage = new Garage<Volvo240>();
 
             // Start a new view and send a reference of self
             cc.vehicleManager.frame = new CarView("CarSim 1.0", cc);

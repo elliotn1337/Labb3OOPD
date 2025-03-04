@@ -8,11 +8,9 @@ import java.util.ArrayList;
 
 public class VehicleManager extends Vehicle {
     CarView frame;
-    CarController carC;
     private final int delay = 50;
 
-    public static List<Vehicle> vehicles = new ArrayList<>();
-    //public static List<Vehicle> garages = new ArrayList<>();
+    List<Vehicle> vehicles = new ArrayList<>();
     Garage<Volvo240> garage = new Garage<>();
 
     protected Timer timer = new Timer(delay, new TimerListener());
@@ -25,21 +23,20 @@ public class VehicleManager extends Vehicle {
         //vehicles.add(v);
     //}
 
-    public void updatePositions(){
-
-    }
+    //public void updatePositions(){}
 
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (Vehicle car : VehicleManager.vehicles) {
+            for (Vehicle car : vehicles) {
 
                 car.move();
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
-                System.out.printf("%s\t%s\n", car.getClass(), car.getCurrentSpeed());
                 frame.drawPanel.moveit(car, x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
+                //System.out.printf("%s\t%s\n", car.getClass(), car.getCurrentSpeed());
+
                 if (car.getX() < 0 || car.getX() > 800 || car.getY() < 0 || car.getY() > 800) {
                     //if (car instanceof Volvo240 && car.getX()
                     car.turnLeft();

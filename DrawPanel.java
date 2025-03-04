@@ -16,15 +16,15 @@ public class DrawPanel extends JPanel {
     BufferedImage volvoImage;
     // To keep track of a single car's position
 
-    Point volvoPoint = new Point(0, 300);
+    Point volvoPoint = new Point();
 
     BufferedImage volvoWorkshopImage;
     Point volvoWorkshopPoint = new Point(300, 300);
 
     BufferedImage saabImage;
-    Point saabPoint = new Point(0, 100);
+    Point saabPoint = new Point();
     BufferedImage scaniaImage;
-    Point scaniaPoint = new Point(0, 200);
+    Point scaniaPoint = new Point();
 
     // TODO: Make this general for all cars
 
@@ -37,7 +37,8 @@ public class DrawPanel extends JPanel {
             saabPoint.y = y;
         } else if (v instanceof Scania) {
             scaniaPoint.x = x;
-            scaniaPoint.y = y;}
+            scaniaPoint.y = y;
+        }
     }
 
     // Initializes the panel and reads the images
