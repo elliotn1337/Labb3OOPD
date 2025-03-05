@@ -16,7 +16,6 @@ public class DrawPanel extends JPanel {
 
     // Just a single image, TODO: Generalize
     public Map<Vehicle, Point> vehiclePositions = new HashMap<>();
-
     public Map<Vehicle, BufferedImage> vehicleImages = new HashMap<>();
 
     BufferedImage volvoImage;
@@ -30,6 +29,10 @@ public class DrawPanel extends JPanel {
     Point saabPoint = new Point();
     BufferedImage scaniaImage;
     Point scaniaPoint = new Point();
+
+    public void addVehicle() {
+
+    }
 
     // TODO: Make this general for all cars
 
@@ -74,6 +77,11 @@ public class DrawPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        for (Map.Entry<Vehicle, Point> entry : vehiclePositions.entrySet()) {
+            Vehicle car = entry.getKey();
+            Point point = entry.getValue();
+        }
+
         g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null);
         // see javadoc for more info on the parameters
         g.drawImage(saabImage, saabPoint.x, saabPoint.y, null);

@@ -28,7 +28,7 @@ public class VehicleManager extends Vehicle {
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
                 frame.drawPanel.moveit(car, x, y);
-                drawPanel.vehiclePositions.put(car, Point(x, y));
+                drawPanel.vehiclePositions.put(car, new Point(x, y));
                 drawPanel.vehicleImages.put(car, image);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();

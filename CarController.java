@@ -8,6 +8,7 @@ package lab2_old;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class CarController {
     // member fields:
@@ -22,6 +23,8 @@ public class CarController {
      * */
 
     protected VehicleManager vehicleManager;
+    DrawPanel drawPanel;
+    BufferedImage volvoImage;
 
     public CarController() {
         this.vehicleManager = new VehicleManager();
@@ -120,13 +123,13 @@ public class CarController {
 
     void addCar() {
         if (!(vehicleManager.vehicles.size() >= 10)) {
-            
-            vehicleManager.vehicles.add(new Volvo240(0, 0));
-            Point z = new Point(0, 0);
-            vehiclePositions.put(i, point));
-            //vehicleImages.put(vehicle, ;
-            z = z + 1;
-            i = i + 1;
+            //String vehicleName = "Volvo240" + i;
+            Volvo240 newV = new Volvo240(0, 0);
+            vehicleManager.vehicles.add(newV);
+            Point newPoint = new Point(0, 0);
+            drawPanel.vehiclePositions.put(newV, newPoint);
+            drawPanel.vehicleImages.put(newV, volvoImage);
+            //i = i + 1;
         }
     }
 }
