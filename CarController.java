@@ -21,7 +21,7 @@ public class CarController {
     /* Each step the TimerListener moves all the cars in the list and tells the
      * view to update its images. Change this method to your needs.
      * */
-
+    private int i = 0;
     protected VehicleManager vehicleManager;
     DrawPanel drawPanel;
     BufferedImage volvoImage;
@@ -29,8 +29,6 @@ public class CarController {
     public CarController() {
         this.vehicleManager = new VehicleManager();
     }
-    private int i = 0;
-    private int z = 0;
 
     // Calls the gas method for each car once
     void gas(int amount) {
@@ -124,12 +122,14 @@ public class CarController {
     void addCar() {
         if (!(vehicleManager.vehicles.size() >= 10)) {
             //String vehicleName = "Volvo240" + i;
-            Volvo240 newV = new Volvo240(0, 0);
+            Volvo240 newV = new Volvo240(0,0);
             vehicleManager.vehicles.add(newV);
-            Point newPoint = new Point(0, 0);
+            Point newPoint = new Point();
             drawPanel.vehiclePositions.put(newV, newPoint);
-            drawPanel.vehicleImages.put(newV, volvoImage);
+            //drawPanel.vehicleImages.(newV, volvoImage);
             //i = i + 1;
+
+
         }
     }
 }

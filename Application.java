@@ -14,7 +14,6 @@ public class Application {
             // Instance of this class
             CarController cc = new CarController();
             cc.vehicleManager.vehicles.add(new Volvo240(0, 0));
-
             cc.vehicleManager.vehicles.add(new Saab95(0, 100));
             cc.vehicleManager.vehicles.add(new Scania(0, 200));
 
@@ -25,8 +24,6 @@ public class Application {
 
             // Start the timer
             cc.vehicleManager.timer.start();
-
         }
-
 }
 

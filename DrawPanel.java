@@ -16,10 +16,26 @@ public class DrawPanel extends JPanel {
 
     // Just a single image, TODO: Generalize
     public Map<Vehicle, Point> vehiclePositions = new HashMap<>();
-    public Map<Vehicle, BufferedImage> vehicleImages = new HashMap<>();
+    public Map<Class<? extends Vehicle>, BufferedImage> vehicleImages = new HashMap<>();
+
+    /*public void carImage(){
+
+        // Skapa bilar som ska användas både för bilder och positioner
+
+        // Lägg till bilarna i vehicleImages med tillhörande bilder
+        vehicleImages.put(volvo, volvoImage);
+        vehicleImages.put(saab, saabImage);
+        vehicleImages.put(scania, scaniaImage);
+
+        // Lägg till bilarna i vehiclePositions med deras initiala positioner
+        vehiclePositions.put(volvo, new Point(0, 0));
+        vehiclePositions.put(saab, new Point(0, 100));
+        vehiclePositions.put(scania, new Point(0, 200));
+        }*/
+
+
 
     BufferedImage volvoImage;
-
     Point volvoPoint = new Point();
 
     BufferedImage volvoWorkshopImage;
@@ -27,26 +43,40 @@ public class DrawPanel extends JPanel {
 
     BufferedImage saabImage;
     Point saabPoint = new Point();
+
     BufferedImage scaniaImage;
     Point scaniaPoint = new Point();
 
-    public void addVehicle() {
-
-    }
-
     // TODO: Make this general for all cars
 
+    private void loadImages(){
+    try{
+        vehicleImages.put(Volvo240.class, ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg")));
+        vehicleImages.put(Saab95.class, ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg")));
+        vehicleImages.put(Scania.class, ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg")));
+    }
+    catch (IOException ex){
+        ex.printStackTrace();
+    }
+}
+
+
     public void moveit(Vehicle v, int x, int y) {
-        if (v instanceof Saab95) {
-            saabPoint.x = x;
-            saabPoint.y = y;
-        } else if (v instanceof Volvo240) {
-            volvoPoint.x = x;
-            volvoPoint.y = y;
-        } else if (v instanceof Scania) {
-            scaniaPoint.x = x;
-            scaniaPoint.y = y;
+        if (vehiclePositions.containsKey(v)) {
+            //vehiclePositions.get(v).setLocation(x, y);
+            vehiclePositions.put(v, new Point(x, y));
+
         }
+        //if (v instanceof Saab95) {
+            //saabPoint.x = x;
+            //saabPoint.y = y;
+        //} else if (v instanceof Volvo240) {
+            //volvoPoint.x = x;
+            //volvoPoint.y = y;
+        //} else if (v instanceof Scania) {
+           // scaniaPoint.x = x;
+           // scaniaPoint.y = y;
+       // }
     }
 
     // Initializes the panel and reads the images
@@ -78,18 +108,26 @@ public class DrawPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         for (Map.Entry<Vehicle, Point> entry : vehiclePositions.entrySet()) {
-            Vehicle car = entry.getKey();
-            Point point = entry.getValue();
-        }
+            BufferedImage img = vehicleImages.get(entry.getKey().getClass());
+            if (img != null) {
+                g.drawImage(img, entry.getValue().x, entry.getValue().y, null);
+            }
+            //Vehicle car = entry.getKey();
+            //Point point = entry.getValue();
+            //BufferedImage carImage = vehicleImages.get(car);
 
-        g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null);
-        // see javadoc for more info on the parameters
+            //g.drawImage(vehicleImages, point.x, point.y, null);
+        g.drawImage(volvoWorkshopImage, volvoWorkshopPoint.x, volvoWorkshopPoint.y, null) ;
+        }}
+
+        /*g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null);
         g.drawImage(saabImage, saabPoint.x, saabPoint.y, null);
         g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null);
         g.drawImage(volvoWorkshopImage, volvoWorkshopPoint.x, volvoWorkshopPoint.y, null);
-        // see javadoc for more info on the parameters
-
-    }
+        */
 }
+
+
+
 
 
