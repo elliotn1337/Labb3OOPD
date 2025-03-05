@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.awt.Point;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.util.HashMap;
+import java.util.Map;
 
 
 // This panel represents the animated part of the view with the car images.
@@ -13,8 +15,11 @@ import javax.swing.*;
 public class DrawPanel extends JPanel {
 
     // Just a single image, TODO: Generalize
+    public Map<Vehicle, Point> vehiclePositions = new HashMap<>();
+
+    public Map<Vehicle, BufferedImage> vehicleImages = new HashMap<>();
+
     BufferedImage volvoImage;
-    // To keep track of a single car's position
 
     Point volvoPoint = new Point();
 
@@ -29,12 +34,12 @@ public class DrawPanel extends JPanel {
     // TODO: Make this general for all cars
 
     public void moveit(Vehicle v, int x, int y) {
-        if (v instanceof Volvo240) {
-            volvoPoint.x = x;
-            volvoPoint.y = y;
-        } else if (v instanceof Saab95) {
+        if (v instanceof Saab95) {
             saabPoint.x = x;
             saabPoint.y = y;
+        } else if (v instanceof Volvo240) {
+            volvoPoint.x = x;
+            volvoPoint.y = y;
         } else if (v instanceof Scania) {
             scaniaPoint.x = x;
             scaniaPoint.y = y;

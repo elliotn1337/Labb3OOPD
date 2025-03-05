@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class transportCar<T extends PersonalCar> extends Truck {
     protected int carDistance;
     private final ArrayList <T> loadedCars = new ArrayList<T>(9);
-    boolean running;
 
     public transportCar() {
         super(new TruckBed());
@@ -15,7 +14,6 @@ public class transportCar<T extends PersonalCar> extends Truck {
         modelName = "Car transporter";
         double angle = 70;
         size = 20;
-        this.running = false;
     }
 
     public ArrayList<T> getLoadedCars(){return loadedCars;}
@@ -54,9 +52,7 @@ public class transportCar<T extends PersonalCar> extends Truck {
             throw new IllegalArgumentException("Something is wrong!");
         }
     }
-    public boolean isRunning(){return this.running;}
 
-    public void flipIsRunning(){this.running = !this.running;}
 
     @Override
     public void move(){

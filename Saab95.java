@@ -7,7 +7,7 @@ public class Saab95 extends Vehicle implements PersonalCar{
     boolean running;
 
     
-    public Saab95(int i, int i1){
+    public Saab95(int x, int y){
         nrDoors = 2;
         color = Color.red;
         enginePower = 125;
@@ -15,16 +15,11 @@ public class Saab95 extends Vehicle implements PersonalCar{
         modelName = "Saab95";
         size = 4.30;
         stopEngine();
-        this.x = i;
-        this.y = i1;
-        this.running = false;
+        this.x = x;
+        this.y = y;
+
     }
 
-
-
-    public boolean isRunning(){return this.running;}
-
-    public void flipIsRunning(){this.running = !this.running;}
 
     public void setTurboOn(){
         turboOn = true;

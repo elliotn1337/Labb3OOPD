@@ -6,7 +6,7 @@ public class Scania extends Truck{
     private TruckBed bed;
     boolean running;
 
-    public Scania(int i, int i1){
+    public Scania(int x, int y){
         super(new TruckBed());
 
         nrDoors = 2;
@@ -17,14 +17,19 @@ public class Scania extends Truck{
         bed.setAngle(0, getCurrentSpeed());
         size = 10;
         stopEngine();
-        this.x = i;
-        this.y = i1;
-        this.running = false;
+        this.y = y;
+        this.x = x;
         }
 
-    public boolean isRunning(){return this.running;}
+    @Override
+    public double getX() {
+        return super.getX();
+    }
 
-    public void flipIsRunning(){this.running = !this.running;}
+    @Override
+    public double getY() {
+        return super.getY();
+    }
 
     @Override
     public void gas(double amount){

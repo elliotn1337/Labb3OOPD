@@ -21,7 +21,6 @@ public class CarView extends JFrame{
     private static final int Y = 800;
 
     // The controller member
-    VehicleManager vehicleManager;
     CarController carC;
 
     DrawPanel drawPanel = new DrawPanel(X, Y-240);
@@ -39,7 +38,7 @@ public class CarView extends JFrame{
 
     JButton turnLeftButton = new JButton("TurnLeft");
     JButton turnRightButton = new JButton("TurnRight");
-
+    JButton addCarButton= new JButton("Add Car");
     JButton gasButton = new JButton("Gas");
     JButton brakeButton = new JButton("Brake");
     JButton turboOnButton = new JButton("Saab Turbo on");
@@ -112,6 +111,7 @@ public class CarView extends JFrame{
         controlPanel.add(scaniaLowerButton, 5);
         controlPanel.add(turnLeftButton, 6);
         controlPanel.add(turnRightButton, 7);
+        controlPanel.add(addCarButton, 8);
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
@@ -186,6 +186,10 @@ public class CarView extends JFrame{
 
             public void actionPerformed(ActionEvent e) {carC.lower(angAmount);}
 
+        });
+
+        addCarButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {carC.addCar();}
         });
 
 

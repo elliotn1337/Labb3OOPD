@@ -7,7 +7,7 @@ public class TestTruck {
 
     @Test
     public void testEngineAngleWhenAngleEqualsZero() {
-        Scania truck = new Scania(0,0);
+        Scania truck = new Scania(0, 0);
         for (int i = 0; i < 71; i++) {
             if (i == 0) {
                 truck.raise(i);
@@ -26,7 +26,7 @@ public class TestTruck {
     @Test
     public void testDeloadCar() {
         transportCar<Volvo240> truck = new transportCar<>();
-        truck.loadCar(new Volvo240(0,0));
+        truck.loadCar(new Volvo240(0, 0));
         truck.raise(0);
         truck.setCurrentspeed(0);
         truck.carDistance = 1;

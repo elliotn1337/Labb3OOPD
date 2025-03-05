@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class VehicleManager extends Vehicle {
     CarView frame;
     private final int delay = 50;
+    DrawPanel drawPanel;
 
     List<Vehicle> vehicles = new ArrayList<>();
     Garage<Volvo240> garage = new Garage<>();
@@ -19,23 +20,22 @@ public class VehicleManager extends Vehicle {
         return vehicles;
     }
 
-    //public void addVehicle(Vehicle v){
-        //vehicles.add(v);
-    //}
-
-    //public void updatePositions(){}
-
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Vehicle car : vehicles) {
-
+                System.out.println(getVehicles());
                 car.move();
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
                 frame.drawPanel.moveit(car, x, y);
+                drawPanel.vehiclePositions.put(car, Point(x, y));
+                drawPanel.vehicleImages.put(car, image);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
-                //System.out.printf("%s\t%s\n", car.getClass(), car.getCurrentSpeed());
+                System.out.printf("%s\t%s\n", car.getX(), car.getY());
+                System.out.println(car);
+
+
 
                 if (car.getX() < 0 || car.getX() > 800 || car.getY() < 0 || car.getY() > 800) {
                     //if (car instanceof Volvo240 && car.getX()
@@ -55,7 +55,10 @@ public class VehicleManager extends Vehicle {
                         }
                     }
                 }
+
+
             }
+
         }
 
 

@@ -6,20 +6,16 @@ public class Volvo240 extends Vehicle implements PersonalCar{
     private final static double trimFactor = 1.25;
     boolean running;
     
-    public Volvo240(int i, int i1){
+    public Volvo240(int x, int y){
         nrDoors = 4;
         color = Color.black;
         enginePower = 100;
         modelName = "Volvo240";
         stopEngine();
         size = 4.87;
-        this.x = i;
-        this.y = i1;
-        this.running = false;
+        this.y = y;
+        this.x = x;
     }
-    public boolean isRunning(){return this.running;}
-
-    public void flipIsRunning(){this.running = !this.running;}
 
     @Override
     protected double speedFactor(){

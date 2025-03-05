@@ -1,7 +1,7 @@
 package lab2_old;
 import java.awt.*;
 
-public abstract class Vehicle extends Position implements Movable {
+public abstract class Vehicle implements Movable {
     protected int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power of the car
     private double currentSpeed; // The current speed of the car
@@ -13,6 +13,12 @@ public abstract class Vehicle extends Position implements Movable {
     protected double size;
     private boolean isLoaded = false;
     private boolean running = false;
+
+    public double getX(){return x;}
+    public double getY(){return y;}
+
+    protected void setX(double xCoord){x = xCoord;}
+    public void setY(double yCoord){y = yCoord;}
     public void setCurrentspeed(double speed){currentSpeed = speed;
     }
     public double getSize(){return size;}
