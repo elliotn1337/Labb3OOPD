@@ -16,7 +16,6 @@ public class Application {
             cc.vehicleManager.vehicles.add(new Volvo240(0, 0));
             cc.vehicleManager.vehicles.add(new Saab95(0, 100));
             cc.vehicleManager.vehicles.add(new Scania(0, 200));
-
             cc.vehicleManager.garage = new Garage<Volvo240>();
 
             // Start a new view and send a reference of self

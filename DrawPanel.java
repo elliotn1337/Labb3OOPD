@@ -40,7 +40,6 @@ public class DrawPanel extends JPanel {
 
     BufferedImage volvoWorkshopImage;
     Point volvoWorkshopPoint = new Point(300, 300);
-
     BufferedImage saabImage;
     Point saabPoint = new Point();
 
@@ -49,7 +48,7 @@ public class DrawPanel extends JPanel {
 
     // TODO: Make this general for all cars
 
-    private void loadImages(){
+    public void loadImages(){
     try{
         vehicleImages.put(Volvo240.class, ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg")));
         vehicleImages.put(Saab95.class, ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg")));
@@ -62,20 +61,19 @@ public class DrawPanel extends JPanel {
 
 
     public void moveit(Vehicle v, int x, int y) {
-        if (vehiclePositions.containsKey(v)) {
+        // if (vehiclePositions.containsKey(v)) {
             //vehiclePositions.get(v).setLocation(x, y);
             vehiclePositions.put(v, new Point(x, y));
-
-        }
+        // }
         //if (v instanceof Saab95) {
             //saabPoint.x = x;
-            //saabPoint.y = y;
+          //  saabPoint.y = y;
         //} else if (v instanceof Volvo240) {
             //volvoPoint.x = x;
-            //volvoPoint.y = y;
+          //  volvoPoint.y = y;
         //} else if (v instanceof Scania) {
            // scaniaPoint.x = x;
-           // scaniaPoint.y = y;
+         //   scaniaPoint.y = y;
        // }
     }
 
@@ -88,8 +86,7 @@ public class DrawPanel extends JPanel {
         try {
             // You can remove the "pics" part if running outside of IntelliJ and
             // everything is in the same main folder.
-            // volvoImage = ImageIO.read(new File("Volvo240.jpg"));
-
+            // volvoImage = ImageIO.read(new File("Volvo240.jpg"));+
             // Rememember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to pics.
             // if you are starting in IntelliJ.
             volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));

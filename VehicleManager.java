@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class VehicleManager extends Vehicle {
+public class VehicleManager  {
     CarView frame;
     private final int delay = 50;
 
@@ -27,6 +27,7 @@ public class VehicleManager extends Vehicle {
                 car.move();
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
+                frame.drawPanel.loadImages();
                 frame.drawPanel.moveit(car, x, y);
                 //drawPanel.vehiclePositions.put(car, new Point(x, y));
                 //drawPanel.vehicleImages.put(car, image);
