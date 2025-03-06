@@ -9,6 +9,7 @@ package lab2_old;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 public class CarController {
     // member fields:
@@ -23,7 +24,7 @@ public class CarController {
      * */
     private int i = 0;
     protected VehicleManager vehicleManager;
-    DrawPanel drawPanel;
+    //DrawPanel drawPanel;
     BufferedImage volvoImage;
 
     public CarController() {
@@ -125,11 +126,21 @@ public class CarController {
             Volvo240 newV = new Volvo240(0,0);
             vehicleManager.vehicles.add(newV);
             Point newPoint = new Point();
-            drawPanel.vehiclePositions.put(newV, newPoint);
+            CarView.drawPanel.vehiclePositions.put(newV, newPoint);
             //drawPanel.vehicleImages.(newV, volvoImage);
             //i = i + 1;
 
 
         }
     }
+    void removeCar(){
+        if (!vehicleManager.vehicles.isEmpty()) {
+            Random random = new Random();
+            int randomIndex = random.nextInt(vehicleManager.vehicles.size());
+            Vehicle removedCar = vehicleManager.vehicles.remove(randomIndex);
+            CarView.drawPanel.vehiclePositions.remove(removedCar);
+
+    }}
+
+
 }

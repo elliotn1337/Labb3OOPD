@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Application {
-    DrawPanel drawPanel;
+    //DrawPanel drawPanel;
 
     //private Garage<Volvo240> garage = new Garage<>();
     //VehicleManager vehicleManager;
