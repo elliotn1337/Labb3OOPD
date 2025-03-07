@@ -36,7 +36,7 @@ public class VehicleManager  {
                 System.out.printf("%s\t%s\n", car.getX(), car.getY());
                 System.out.println(car);
 
-                if (car.getX() < 0 || car.getX() > 800 || car.getY() < 0 || car.getY() > 800) {
+                if (car.getX() < 0 || car.getX() > 685 || car.getY() < 0 || car.getY() > 500) {
                     //if (car instanceof Volvo240 && car.getX()
                     car.turnLeft();
                     car.turnLeft();
@@ -46,10 +46,12 @@ public class VehicleManager  {
                 if (275.0 < car.getX() && car.getX() < 325.0 && 275 < car.getY() && car.getY() < 325) {
                     if (car instanceof Volvo240 v) {
                         if (!car.getIsLoaded()) {
-                            garage.loadVehicle(v);
-                            car.setX(300);
-                            car.setY(300);
-                            v.stopEngine();
+                                garage.loadVehicle(v);
+                                car.setIsRunning(false);
+                                car.setX(300);
+                                car.setY(300);
+                                v.stopEngine();
+
 
                         }
                     }

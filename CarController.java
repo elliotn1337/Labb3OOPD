@@ -26,7 +26,7 @@ public class CarController {
     protected VehicleManager vehicleManager;
     //DrawPanel drawPanel;
     BufferedImage volvoImage;
-
+    private Random random = new Random();
     public CarController() {
         this.vehicleManager = new VehicleManager();
     }
@@ -89,7 +89,7 @@ public class CarController {
     //@Override
     void startEngine() {
         for (Vehicle v : vehicleManager.vehicles) {
-            if (!(v.isRunning())) {
+            if ((!(v.isRunning())) && (!(v.getIsLoaded()))) {
                 v.startEngine();
                 v.setIsRunning(true);
             }
@@ -123,7 +123,8 @@ public class CarController {
     void addCar() {
         if (!(vehicleManager.vehicles.size() >= 10)) {
             //String vehicleName = "Volvo240" + i;
-            Volvo240 newV = new Volvo240(0,0);
+            int randomCoord = random.nextInt(500);
+            Volvo240 newV = new Volvo240(0,randomCoord);
             vehicleManager.vehicles.add(newV);
             Point newPoint = new Point();
             CarView.drawPanel.vehiclePositions.put(newV, newPoint);
@@ -135,12 +136,23 @@ public class CarController {
     }
     void removeCar(){
         if (!vehicleManager.vehicles.isEmpty()) {
-            Random random = new Random();
             int randomIndex = random.nextInt(vehicleManager.vehicles.size());
             Vehicle removedCar = vehicleManager.vehicles.remove(randomIndex);
             CarView.drawPanel.vehiclePositions.remove(removedCar);
 
     }}
 
+    void deloadCar() {
+        if (vehicleManager.garage.getGarageLoaded() > 0) {
+            int randomIndex = random.nextInt(vehicleManager.garage.getGarageLoaded());
 
+            Vehicle removedCar = vehicleManager.garage.deloadVehicle(randomIndex);
+
+
+                CarView.drawPanel.vehiclePositions.put(removedCar, new Point(400,300));
+                removedCar.setIsRunning(true);
+                removedCar.setX(400);removedCar.setIsLoaded(false);removedCar.startEngine();
+
+        }
+    }
 }

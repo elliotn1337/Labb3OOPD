@@ -46,7 +46,7 @@ public class CarView extends JFrame{
     JButton turboOffButton = new JButton("Saab Turbo off");
     JButton scaniaRaiseButton = new JButton("Scania Lift Bed");
     JButton scaniaLowerButton = new JButton("Lower Lift Bed");
-
+    JButton deloadCarButton = new JButton("Deload a car");
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
 
@@ -114,6 +114,7 @@ public class CarView extends JFrame{
         controlPanel.add(turnRightButton, 7);
         controlPanel.add(addCarButton, 8);
         controlPanel.add(removeCarButton, 8);
+        controlPanel.add(deloadCarButton, 9);
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
@@ -197,7 +198,9 @@ public class CarView extends JFrame{
         removeCarButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {carC.removeCar();}
         });
-
+        deloadCarButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {carC.deloadCar();}
+        });
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();

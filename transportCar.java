@@ -36,7 +36,6 @@ public class transportCar<T extends PersonalCar> extends Truck {
 
                 loadedCars.add(car);
                 carDistance = 0;
-
             }
             else {
                 throw new IllegalArgumentException("Something is wrong!");
